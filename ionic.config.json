@@ -1,0 +1,7 @@
+{
+  "name": "tridots",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
