@@ -1,27 +1,172 @@
+$color-white: #fff;
+$font-weight-600: 600;
+$color-black-500: #0e0d0d;
+$primary-green: #2dd36f;
+
+@mixin heading($fontSize, $color, $fontWeight) {
+  font-size: $fontSize;
+  color: $color;
+  font-weight: $fontWeight;
+}
+
+@mixin btn-custom($bg-color, $color) {
+  background-color: $bg-color;
+  color: $color;
+}
+.btns {
+  border-radius: 5px;
+  width: 140px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.short-name-wrapper {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $color-black-500;
+
+  span {
+    color: $color-white;
+    font-weight: $font-weight-600;
+  }
+}
+
+.cog-icon {
+  color: $color-white;
+  font-size: 25px;
+  float: right;
+  margin-top: 10px;
+}
+.heading-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  p.primary-title {
+    @include heading(28px, $color-white, $font-weight-600);
+  }
+  .btn-primary-green {
+    @include btn-custom($primary-green, $color-white);
+
+    .add-icon {
+      margin-right: 5px;
+    }
+  }
+}
+.search-bar {
+  border-radius: 5px;
+  border: 1px solid $primary-green;
+
+  &:focus{
+    box-shadow: inset 0 0 0 1px black, 0 0 3px 1px hotpink ;
+  }
+}
+
 #container {
-  text-align: center;
+  background-color: #363d4d;
+  height: 100%;
+  border-radius: 50px;
+}
 
+* {
+  --background: #363d4d;
+  --color: #ffff;
+  --placeholder-color: #ffff;
+  --icon-color: #fff;
+  --clear-button-color: #fff;
+}
+
+// Search Bar
+
+/* Scoped components require higher specificity to customize */
+ion-searchbar.custom {
+  --background: #363d4d;
+  --color: #ffff;
+  --placeholder-color: #ffff;
+  --icon-color: #fff;
+  --clear-button-color: #fff;
+  --border-radius: 10px;
+  outline: #fff;
+}
+ion-serachbar .searchbar-input.sc-ion-searchbar-ios {
+  border: 1px solid;
+}
+
+ion-searchbar.ios.custom {
+  --cancel-button-color: #363d4d;
+}
+
+ion-searchbar.md.custom {
+  --cancel-button-color: #fff;
+}
+
+//  Action Butoon
+
+ion-action-sheet.my-custom-class {
+  --background: #f58840;
+  --backdrop-opacity: 0.6;
+  --button-background-selected: #e97223;
+  --button-color: #000000;
+  --color: #fff;
+  /* role: "destructive" button iOS styling override */
+  --ion-color-danger: #000000;
+}
+
+thead {
+  color: white;
+  font-weight: 700;
+}
+th:before {
+  content: "";
   position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+  width: 150px;
+  height: 14px;
+  transform: skew(-12deg) translateX(-50%);
+  background: rgba(238, 111, 87, 0.5);
+  z-index: -1;
+}
+td {
+  padding: 20px;
 }
 
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
+.popUpMenu {
+  transition: opacity 1s ease 0s;
+  padding: 3px;
+  padding-top: 160px;
+  border-radius: 50px;
+  opacity: 97.9%;
 }
 
-#container p {
-  font-size: 16px;
-  line-height: 22px;
-
-  color: #8c8c8c;
-
+.forminput {
   margin: 0;
+  margin-left: 0px;
+  color: black;
+  height: 45px;
+  width: 375px;
+  border-radius: 5px;
+  margin-left: 13px;
+  border: 1px solid black;
 }
 
-#container a {
-  text-decoration: none;
+h5 {
+  font-size: 30px;
+  font-weight: 700;
+  margin: 40px 20px;
+}
+
+.formLabel {
+  font-family: inherit;
+  line-height: 3;
+  margin-left: 20px;
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.ActionButton {
+  margin: 56px 177px;
+  padding-left: -25px;
+  width: 295px;
 }

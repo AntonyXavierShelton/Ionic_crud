@@ -1,20 +1,128 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
+
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content style="border-radius: 50px;" [fullscreen]="true">
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+
+  <div style="border-radius: 50px;" id="container">
+       
+    <!-- <ion-button (click)="presentActionSheet()">Open</ion-button> <ion-button (click)="saveToast('top')">Open</ion-button> -->
+    <!-- <ion-button expand="block" (click)="displayToast()">Present Toast At the Top</ion-button>saveToas -->
+    <div *ngIf="ShowForm" class="popUpMenu">
+      <h5>Employee Detials</h5>
+      <label class="formLabel" for="Employeename">Employee Name</label><br>
+      <input class="forminput" type="text" name="" id="" [(ngModel)]="employee.name"><br>
+      <label class="formLabel" for="Description">Description</label><br>
+      <input class="forminput" type="text" name="" id="" [(ngModel)]="employee.activity"><br>
+      <label class="formLabel" for="Status">Status</label><br>
+      <input class="forminput" type="text" name="" id="" [(ngModel)]="employee.balance"><br>
+      <label class="formLabel" for="Activity">Activity</label><br>
+      <input class="forminput" type="text" name="" id="" [(ngModel)]="employee.status"><br>
+      <div style="margin: 65px 125px;" class="ActionButton">
+        <ion-button (click)="save()" style="font-size: 20px;
+          font-weight: 800;
+          width: 140px;
+          " color="success">Save</ion-button>
+      </div>
+    </div>
+
+
+    <div *ngIf="Actionmenu" class="popUpMenu">
+      <h5>Employee Detials</h5>
+      <label class="formLabel" for="Employeename">Employee Name</label><br>
+      <input class="forminput" type="text" name="" id="" [(ngModel)]="employee.name"><br>
+      <label class="formLabel" for="Description">Description</label><br>
+      <input class="forminput" type="text" name="" id="" [(ngModel)]="employee.activity"><br>
+      <label class="formLabel" for="Status">Status</label><br>
+      <input class="forminput" type="text" name="" id="" [(ngModel)]="employee.balance"><br>
+      <label class="formLabel" for="Activity">Activity</label><br>
+      <input class="forminput" type="text" name="" id="" [(ngModel)]="employee.status"><br>
+      <div style="margin: 50px 60px;;" class="ActionButton">
+        <ion-button (click)="editProduct(employee)" style="font-size: 20px;
+          font-weight: 800;
+          width: 100px;
+          " color="primary">Edit</ion-button>
+        <ion-button  (click)="presentActionSheet(employee)" style="font-size: 20px;
+          font-weight: 800;
+          width: 100px;
+          margin-left: 60px;
+          " color="danger">Delete</ion-button>
+      </div>
+    </div>
+
+
+
+    <!--  <ion-button (click)="save()" color="success"> <ion-icon slot="start" name="star"></ion-icon>Save</ion-button><br>
+    <ion-button (click)="delete()" color="danger"> <ion-icon slot="start" name="star"></ion-icon>Delete</ion-button><br>
+    <ion-button (click)="update()" color="warning"> <ion-icon slot="start" name="star"></ion-icon>Update</ion-button><br> -->
+    <div *ngIf="homeScreen">
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <div class="short-name-wrapper" > <span>SH</span></div>
+          </ion-col>
+          <ion-col> <ion-icon name="settings-outline" class="cog-icon"> </ion-icon></ion-col>
+        </ion-row>
+      </ion-grid>
+      <ion-grid>
+        <ion-row>
+          <ion-col class="heading-wrapper">
+            <p class="primary-title" style="">Dashboard</p>
+            <ion-button class="btns btn-primary-green"  (click)="Add()"
+              color="success"><ion-icon name="add-circle-outline" class="add-icon"></ion-icon>Add</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-searchbar class="custom search-bar" style="
+         " search-icon="search-circle"  placeholder=" Search">
+            </ion-searchbar>
+          </ion-col>
+
+
+        </ion-row>
+      </ion-grid>
+      <ion-grid style=" margin-top: 40px;">
+        <ion-row>
+          <ion-col>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th style="text-align: left;  padding-left: 23px;" scope="col">Name</th>
+                  <th scope="col">Balance</th>
+                  <th scope="col">Activity</th>
+                  <th scope="col">Action</th>
+                </tr>
+                <div style="height: 2px;
+              background: white;
+              width: 371px;
+              margin: 15px;
+              position: absolute;"></div>
+              </thead>
+
+              <tbody>
+                <tr style="margin: 25px;" *ngFor="let product of data;
+          let i = index
+                ">
+
+                  <td>{{product.name}}</td>
+                  <td>{{product.activity}}</td>
+                  <td>{{product.balance}}</td>
+                  <td>
+                    <ion-button style="height: 35px;" color="success" (click)="editmenu(product)"> <ion-icon
+                        name="create"></ion-icon></ion-button>
+                  </td>
+                </tr>
+
+              </tbody>
+            </table>
+          </ion-col>
+
+        </ion-row>
+      </ion-grid>
+    </div>
   </div>
 </ion-content>
